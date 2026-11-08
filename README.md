@@ -1,64 +1,90 @@
-# 💼 FreelanceHub
+# FreelanceHub
 
-### ✨ Connecting Clients with Freelancers!
+FreelanceHub is a freelance management system built with Java, Spring Boot, MySQL, and Thymeleaf. It includes pages for managing projects, proposals, contracts, milestones, and invoices, along with client and freelancer dashboards.
 
-FreelanceHub is a Java-based Freelance Management System that provides a simple platform for clients and freelancers to collaborate, manage projects, and track their work.
+## Tech stack
 
-## 🌟 Features
+- Java 21
+- Spring Boot
+- Maven
+- MySQL
+- Thymeleaf
 
-- 👤 Client and Freelancer Registration & Login
-- 📁 Create and Browse Projects
-- 📝 Submit, Accept and Reject Proposals
-- 📄 Automatic Contract Creation
-- 🎯 Milestone Management
-- 💰 Invoice Generation and Simulated Payments
+## Prerequisites
 
-## 🛠️ Tech Stack
+Install:
 
-- **Backend:** Java, Spring Boot
-- **Frontend:** HTML, CSS, Bootstrap, Thymeleaf
-- **Database:** MySQL
-- **ORM:** Spring Data JPA, Hibernate
-- **Build Tool:** Maven
+- Java 21
+- MySQL
 
-## 🚀 Run Locally
+The project includes Maven wrapper scripts, so a separate Maven installation is not required.
+
+## Getting started
 
 1. Clone the repository:
 
-   `git clone https://github.com/amrita354/FreelanceHub.git`
+   ```bash
+   git clone https://github.com/arnavins/FreelanceHub.git
+   cd FreelanceHub
+   ```
 
-2. Open the project folder:
+2. Create the database and user in MySQL. Choose a password and use it in the next step:
 
-   `cd FreelanceHub`
+   ```sql
+   CREATE DATABASE freelancehub_db;
+   CREATE USER 'freelancehub_user'@'localhost' IDENTIFIED BY 'your_password';
+   GRANT ALL PRIVILEGES ON freelancehub_db.* TO 'freelancehub_user'@'localhost';
+   FLUSH PRIVILEGES;
+   ```
 
-3. Create a MySQL database named `freelancehub_db`.
+3. Set the `DB_PASSWORD` environment variable to the password for `freelancehub_user`.
 
-4. Configure your database credentials in `application.properties` using the `DB_PASSWORD` environment variable.
+   macOS/Linux:
 
-5. Start the application:
+   ```bash
+   export DB_PASSWORD=your_password
+   ```
 
-   `./mvnw spring-boot:run`
+   PowerShell:
 
-6. Open your browser:
+   ```powershell
+   $env:DB_PASSWORD = "your_password"
+   ```
 
-   `http://localhost:8080`
+4. Start the application:
 
-## 💡 OOP Concepts
+   macOS/Linux:
 
-This project demonstrates:
+   ```bash
+   ./mvnw spring-boot:run
+   ```
 
-- Encapsulation
-- Abstraction
-- Inheritance
-- Polymorphism
-- Association, Aggregation and Composition
+   Windows:
 
-## 💖 Made With
+   ```bat
+   mvnw.cmd spring-boot:run
+   ```
 
-Java | Spring Boot | MySQL | Bootstrap
+The application is configured to connect to MySQL at `127.0.0.1:3306/freelancehub_db`. Update `src/main/resources/application.properties` if your local database uses a different address or username.
 
----
+## Running tests
 
-<p align="center">
-  <strong>FreelanceHub – Where Talent Meets Opportunity! 🚀</strong>
-</p>
+macOS/Linux:
+
+```bash
+./mvnw test
+```
+
+Windows:
+
+```bat
+mvnw.cmd test
+```
+
+## Contributing
+
+Contributions are welcome. For substantial changes, consider discussing the idea with the project maintainer first. When submitting a pull request, include a clear description of the change and any relevant testing details.
+
+## License
+
+No license is currently specified in this repository.
